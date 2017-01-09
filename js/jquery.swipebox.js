@@ -1,4 +1,5 @@
-/*! Swipebox v1.4.4 | Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox */
+/*! Swipebox v2.0micz | Originally from Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox
+ *  Modified by http://micz.it */
 
 ;( function ( window, document, $, undefined ) {
 
@@ -13,6 +14,7 @@
 				removeBarsOnMobile : true,
 				hideCloseButtonOnMobile : false,
 				hideBarsDelay : 3000,
+				showTitle: true,
 				videoMaxWidth : 1140,
 				vimeoColor : 'cccccc',
 				beforeOpen: null,
@@ -714,6 +716,8 @@
 					title = elements[ index ].title;
 				}
 
+				if(!plugin.settings.showTitle) title = false;
+
 				if ( title ) {
 					$( '#swipebox-top-bar' ).show();
 					$( '#swipebox-title' ).append( title );
@@ -756,7 +760,7 @@
 				if ( a.search ) {
 					qs = JSON.parse( '{"' + a.search.toLowerCase().replace('?','').replace(/&/g,'","').replace(/=/g,'":"') + '"}' );
 				}
-				
+
 				// Extend with custom data
 				if ( $.isPlainObject( customData ) ) {
 					qs = $.extend( qs, customData, plugin.settings.queryStringData ); // The dev has always the final word
