@@ -75,7 +75,7 @@ function wpmiczartgal_enqueue_scripts() {
 	    );
 	    wp_enqueue_style(
               'swipebox-style',
-              plugins_url('/css/swipebox.css' , ___FILE_wpag___ ),
+              plugins_url('css/swipebox.css' , ___FILE_wpag___ ),
               array(),
               WPArtGallery::version
         );
