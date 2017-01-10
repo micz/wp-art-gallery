@@ -96,10 +96,6 @@ if (!class_exists('WPArtGallery')) {
         <?esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
         <?esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
     </tr>
-   <tr valign="top"><th scope="row"><?esc_html_e('Exclusive custom CSS','wp-art-gallery');?></th>
-        <td><input type="checkbox" name="wpmiczartgal_options[<?=self::_only_custom_css?>]" value="1"<?php if($this->options[self::_only_custom_css]==1){echo ' checked="checked"';} ?>"/> <?esc_html_e('Check this option if you want to load only your custom CSS and not the default one before your one.','wp-art-gallery');?><br/>
-        <a href="<?=self::url_custom_css_info;?>" target="_blank"><?esc_html_e('More info on custom CSS','wp-art-gallery');?></a></td>
-    </tr>
 </table>
 <input name="Submit" class="button button-primary" type="submit" value="<?php esc_attr_e('Save Changes','wp-art-gallery');?>"/>
 </form></div>
