@@ -79,11 +79,11 @@ function wpmiczartgal_enqueue_scripts() {
               array(),
               WPArtGallery::version
         );
-	    $custom_css_exists=file_exists(get_stylesheet_directory().'/wp-art-gallery.css'); //check if a custom css exists in the current theme directory
+	    $custom_css_exists=file_exists(get_stylesheet_directory().'/wp-art-gallery/wp-art-gallery.css'); //check if a custom css exists in the current theme directory
         if($custom_css_exists){ //Conditionally loading a theme css
           wp_enqueue_style(
               'wpmiczartgal-theme-style',
-              get_stylesheet_directory_uri().'/wp-art-gallery.css',
+              get_stylesheet_directory_uri().'/wp-art-gallery/wp-art-gallery.css',
               array(),
               WPArtGallery::version
           );

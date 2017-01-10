@@ -27,6 +27,7 @@ function wpartg_enter_gallery(img_array){
 		nextSlide:function(index){wpartg_change_slide(index);},
 		prevSlide:function(index){wpartg_change_slide(index);},
 		showTitle:false,
+		hideBarsDelay:1000,
 	});
 	return false;
 }
