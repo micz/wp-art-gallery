@@ -92,7 +92,7 @@ if (!class_exists('WPArtGallery')) {
 <table class="form-table">
    <tr valign="top"><th scope="row"><?esc_html_e('Gallery page','wp-art-gallery');?></th>
         <td><input type="text" name="wpmiczartgal_options[<?=self::_pages?>]" value="<?php echo $this->options[self::_pages]; ?>"/>
-        <br/><?esc_html_e('To optimize your website loading times, you could write here the pages id or permalink on which you have activated the art Gallery with the shortcode.','wp-art-gallery');?><br/>
+        <br/><?esc_html_e('To optimize your website loading times, you could write here the pages id or permalink on which you have activated the Art Gallery with the shortcode.','wp-art-gallery');?><br/>
         <?esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
         <?esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
     </tr>
