@@ -1,4 +1,4 @@
-/*! Swipebox v2.0micz | Originally from Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox
+/*! Swipebox v2.0micz | Originally from Constantin Saguin csag.co - v1.4.4 | MIT License | github.com/brutaldesign/swipebox
  *  Modified by http://micz.it */
 
 ;( function ( window, document, $, undefined ) {
