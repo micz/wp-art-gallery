@@ -38,6 +38,7 @@ if (!class_exists('WPArtGallery')) {
 	  //Options constants
 	  const _pages='_pages';
 	  const _only_custom_css='_only_custom_css';
+	  const _gallery_link_text='_gallery_link_text';
 
 	  // Class Constructor
 	  public function __construct(){
@@ -62,7 +63,7 @@ if (!class_exists('WPArtGallery')) {
 	    global $that;
 	    register_setting('wpmiczartgal_options','wpmiczartgal_options',array($that,'options_validate'));
   	  	add_settings_section('wpmiczartgal_main', esc_html__('Main Settings','wp-art-gallery'), array($that,'main_section_text'), 'wpmiczartgal_settings_page');
-	    add_settings_field('wpmiczartgal_user',esc_html__('500px User','wp-art-gallery'),null,'wpmiczartgal_settings_page','default');
+	    add_settings_field('wpmiczartgal_link_text',esc_html__('Gallery link text','wp-art-gallery'),null,'wpmiczartgal_settings_page','default');
 	  }
 
 	  public function admin_add_page(){
@@ -96,6 +97,10 @@ if (!class_exists('WPArtGallery')) {
         <?esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
         <?esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
     </tr>
+    <tr valign="top"><th scope="row"><?esc_html_e('Gallery link text','wp-art-gallery');?></th>
+        <td><input name="wpmiczartgal_options[<?=self::_gallery_link_text?>]" type="text" value="<?php echo $this->options[self::_gallery_link_text]; ?>"/>
+        </td>
+    </tr>
 </table>
 <input name="Submit" class="button button-primary" type="submit" value="<?php esc_attr_e('Save Changes','wp-art-gallery');?>"/>
 </form></div>
@@ -103,6 +108,7 @@ if (!class_exists('WPArtGallery')) {
 
   public function options_validate($input) {
     $newinput[self::_pages] = trim(wp_filter_nohtml_kses($input[self::_pages]));
+    $newinput[self::_gallery_link_text] = trim(wp_filter_nohtml_kses($input[self::_gallery_link_text]));
     return $newinput;
   }
 
@@ -175,7 +181,12 @@ if (!class_exists('WPArtGallery')) {
 		$output.=$output_hidden_img;
 		$output.=$output_img_js_array;
 
-		$output.='<a href="javascript:wpartg_enter_gallery(wpartg_img_array);">'.__('Enter Gallery').'</a>';
+		$gallery_link_text=__('Enter Gallery','wp-art-gallery');
+		if($this->options[self::_gallery_link_text]!=''){
+			$gallery_link_text=$this->options[self::_gallery_link_text];
+		}
+
+		$output.='<a href="javascript:wpartg_enter_gallery(wpartg_img_array);">'.$gallery_link_text.'</a>';
 
      	return $output;
 	  }
