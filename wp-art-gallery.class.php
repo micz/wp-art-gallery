@@ -175,7 +175,7 @@ if (!class_exists('WPArtGallery')) {
 		$output.=$output_hidden_img;
 		$output.=$output_img_js_array;
 
-		$output.='<a href="javascript:wpartg_enter_gallery(wpartg_img_array);">Enter Gallery</a>';
+		$output.='<a href="javascript:wpartg_enter_gallery(wpartg_img_array);">'.__('Enter Gallery').'</a>';
 
      	return $output;
 	  }
