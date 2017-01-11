@@ -141,8 +141,10 @@ if (!class_exists('WPArtGallery')) {
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
-	    extract(shortcode_atts(array('ids'=>0),$atts));
+	    extract(shortcode_atts(array('ids'=>'','tag'=>''),$atts));
 	    $ids=trim(wp_filter_nohtml_kses($ids));
+	    $tag=trim(wp_filter_nohtml_kses($tag));
+
       if($this->scripts_loaded==false){ //the user is not loading the scripts in this page
         if(current_user_can('manage_options')){ //the current user can manage options
           return '<p><span style="color:red;font-weight:bold;">'.esc_html__('You\'ve set the wrong page id or permalink in the plugin settings, so the Art Gallery Plugin scripts are not loaded in this page!','wp-art-gallery').'<span></p>';
@@ -152,11 +154,52 @@ if (!class_exists('WPArtGallery')) {
       }
       //print here the Art Gallery javascript code
       //see https://core.trac.wordpress.org/browser/tags/4.5.3/src/wp-includes/media.php#L1577
-      $output.='gallery ids= '.$ids.'</br/>';
       $attachments = array();
 
 		if ( ! empty( $ids ) ) {
-			$_attachments = get_posts( array( 'include' => $ids, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image' ) );
+			$output.='gallery ids= '.$ids.'</br/>';
+
+			$_attachments = get_posts(array(
+								'include' => $ids,
+								'post_status' => 'inherit',
+								'post_type' => 'attachment',
+								'post_mime_type' => 'image',
+							) );
+
+			foreach ( $_attachments as $key => $val ) {
+				$attachments[$val->ID] = $_attachments[$key];
+			}
+		}elseif( ! empty( $tag ) ) {
+			//we are going to extract all the images from the tagged posts (type image)
+			$_tagged_posts = get_posts( array(
+							 	'post_type' => 'post',
+							 	'tax_query' => array(
+									array(
+										'taxonomy' => 'post_format',
+										'field'    => 'slug',
+										'terms'    => array( 'post-format-image' ),
+									),
+								),
+								'tag' => $tag,
+							 ) );
+
+			$_tagged_posts_ids_array=array();
+
+			foreach($_tagged_posts as $tagged_post) {
+				$_tagged_posts_ids_array[]=$tagged_post->ID;
+			}
+
+			$_tagged_posts_ids=join(',',$_tagged_posts_ids_array);
+
+			$output.='gallery ids from tag= '.$_tagged_posts_ids.'</br/>';
+
+			$_attachments = get_posts( array(
+								'post_parent__in' => $_tagged_posts_ids_array,
+								'post_status' => 'inherit',
+								'post_type' => 'attachment',
+								'post_mime_type' => 'image',
+								'orderby'   => 'post__in',
+							) );
 
 			foreach ( $_attachments as $key => $val ) {
 				$attachments[$val->ID] = $_attachments[$key];
@@ -164,7 +207,7 @@ if (!class_exists('WPArtGallery')) {
 		}
 
 		if ( empty( $attachments ) ) {
-			$output.='<br/><b>Attachments empty!!</b></br/>';
+			$output.='<br/><b>'.esc_html__('No images found!','wp-art-gallery').'</b></br/>';
 			return $output;
 		}
 
