@@ -102,6 +102,7 @@ if (!class_exists('WPArtGallery')) {
     </tr>
     <tr valign="top"><th scope="row"><?esc_html_e('Gallery link text','wp-art-gallery');?></th>
         <td><input name="wpmiczartgal_options[<?=self::_gallery_link_text?>]" type="text" value="<?php echo $this->options[self::_gallery_link_text]; ?>"/>
+        <br/><?esc_html_e('If left empty it will be used "Enter Gallery".','wp-art-gallery');?>
         </td>
     </tr>
 </table>
