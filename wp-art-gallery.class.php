@@ -63,7 +63,7 @@ if (!class_exists('WPArtGallery')) {
 	    global $that;
 	    register_setting('wpmiczartgal_options','wpmiczartgal_options',array($that,'options_validate'));
   	  	add_settings_section('wpmiczartgal_main', esc_html__('Main Settings','wp-art-gallery'), array($that,'main_section_text'), 'wpmiczartgal_settings_page');
-	    add_settings_field('wpmiczartgal_link_text',esc_html__('Gallery link text','wp-art-gallery'),null,'wpmiczartgal_settings_page','default');
+	    //add_settings_field('wpmiczartgal_link_text',esc_html__('Gallery link text','wp-art-gallery'),null,'wpmiczartgal_settings_page','default');
 	  }
 
 	  public function admin_add_page(){
@@ -74,9 +74,12 @@ if (!class_exists('WPArtGallery')) {
     public function main_section_text() {
       $output='<p>';
       $output.='<b>'.esc_html__('How to use this plugin:','wp-art-gallery').'</b><br/>';
-      $output.=esc_html__('1. Upload you photos and...','wp-art-gallery').'<br/>';
+      $output.=esc_html__('1. Upload you photos and... TO DO','wp-art-gallery').'<br/>';
       $output.=esc_html__('2. Use the [mz_artg] shortcode in the page you want to show the Art Gallery on.','wp-art-gallery').'<br/>';
       $output.=esc_html__('3. Add the needed parameters to the shortcode of that page.','wp-art-gallery').'<br/>';
+      $output.='<br/>';
+      $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
+      $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
       $output.='</p>';
       echo $output;
     }
