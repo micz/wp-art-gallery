@@ -96,6 +96,12 @@ function wpmiczartgal_enqueue_scripts() {
             WPArtGallery::version
         );
         wp_enqueue_script(
+            'vibrant',
+            plugins_url( 'js/vibrant.min.js' , ___FILE_wpag___ ),
+            array(),
+            WPArtGallery::version
+        );
+        wp_enqueue_script(
             'wpmiczartgal-main',
             plugins_url( 'js/wp-art-gallery.js' , ___FILE_wpag___ ),
             array('jquery','swipebox'),

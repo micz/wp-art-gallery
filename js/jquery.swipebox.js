@@ -17,6 +17,7 @@
 				showTitle: true,
 				videoMaxWidth : 1140,
 				vimeoColor : 'cccccc',
+				afterBuildDone: null,
 				beforeOpen: null,
 				afterOpen: null,
 				afterClose: null,
@@ -199,6 +200,10 @@
 
 				$this.animBars();
 				$this.resize();
+
+				if ( plugin.settings.afterBuildDone ) {
+						plugin.settings.afterBuildDone();
+					}
 
 			},
 
