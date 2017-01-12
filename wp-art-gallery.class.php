@@ -164,6 +164,7 @@ if (!class_exists('WPArtGallery')) {
 								'post_status' => 'inherit',
 								'post_type' => 'attachment',
 								'post_mime_type' => 'image',
+								'orderby'   => 'post__in',
 							) );
 
 			foreach ( $_attachments as $key => $val ) {
