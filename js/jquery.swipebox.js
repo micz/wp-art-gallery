@@ -722,11 +722,9 @@
 
 				$( '#swipebox-title' ).empty();
 
-				if ( elements[ index ] !== undefined ) {
+				if (plugin.settings.showTitle && (elements[ index ] !== undefined) ) {
 					title = elements[ index ].title;
 				}
-
-				if(!plugin.settings.showTitle) title = false;
 
 				if ( title ) {
 					$( '#swipebox-top-bar' ).show();
