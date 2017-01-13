@@ -212,21 +212,21 @@ if (!class_exists('WPArtGallery')) {
 			return $output;
 		}
 
-		$output_hidden_img='<div style="display:none;">';
+		//$output_hidden_img='<div style="display:none;">';
 		$output_img_js_array='<script language="javascript">let wpartg_img_array=[';
 
 		foreach ( $attachments as $id => $attachment ) {
 			$img_metadata=wp_get_attachment_image_src($id,'large');
 			$img_data=wpmz_get_attachment($id);
 			$output.=$img_metadata[0].'<br/>';
-			$output_hidden_img.='<img src="'.$img_metadata[0].'"/>';
+			//$output_hidden_img.='<img src="'.$img_metadata[0].'"/>';
 			$output_img_js_array.='{href:"'.$img_metadata[0].'",title:"'.$img_data['title'].'",alt:"'.$img_data['alt'].'",caption:"'.$img_data['caption'].'",desc:"'.$img_data['description'].'"},';
 		}
 
-		$output_hidden_img.='</div>';
+		//$output_hidden_img.='</div>';
 		$output_img_js_array=trim($output_img_js_array,',');
 		$output_img_js_array.='];</script>';
-		$output.=$output_hidden_img;
+		//$output.=$output_hidden_img;
 		$output.=$output_img_js_array;
 
 		$gallery_link_text=__('Enter Gallery','wp-art-gallery');
