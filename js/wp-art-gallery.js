@@ -46,10 +46,15 @@ function wpartg_add_html(index){
 
 function wpartg_after_setSlide(index){
 	let vibrant=new Vibrant(jQuery('#swipebox-slider > div.slide.current > img')[0]);
-	//let vibrant=new Vibrant(jQuery( '#swipebox-slider .slide' ).eq( index ).find('img')[0]);
 	let swatches = vibrant.swatches();
 	jQuery('#wpartg-title').css('background-color',swatches['Muted'].getHex());
 	jQuery('#wpartg-title').css('color',swatches['Muted'].getTitleTextColor());
+	jQuery('#wpartg-alt').css('background-color',swatches['Muted'].getHex());
+	jQuery('#wpartg-alt').css('background-color',swatches['Muted'].getHex());
+	jQuery('#wpartg-caption').css('background-color',swatches['Muted'].getHex());
+	jQuery('#wpartg-caption').css('background-color',swatches['Muted'].getHex());
+	jQuery('#wpartg-desc').css('background-color',swatches['Muted'].getHex());
+	jQuery('#wpartg-desc').css('background-color',swatches['Muted'].getHex());
 }
 
 function wpartg_change_slide(index){
@@ -57,8 +62,4 @@ function wpartg_change_slide(index){
 	jQuery('#wpartg-alt').text(wpartg_img_array[index]['alt']);
 	jQuery('#wpartg-caption').text(wpartg_img_array[index]['caption']);
 	jQuery('#wpartg-desc').text(wpartg_img_array[index]['desc']);
-/*	let vibrant=new Vibrant(jQuery('div.slide.current > img')[0]);
-	let swatches = vibrant.swatches();
-	jQuery('#wpartg-title').css('background-color',swatches['Muted'].getHex());
-	jQuery('#wpartg-title').css('color',swatches['Muted'].getTitleTextColor());*/
 }
