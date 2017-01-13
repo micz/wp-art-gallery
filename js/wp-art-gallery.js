@@ -45,9 +45,9 @@ function wpartg_add_html(index){
 }
 
 function wpartg_after_setSlide(index){
-	let vibrant=new Vibrant(jQuery('#swipebox-slider > div.slide.current > img')[0]);
-	let swatches = vibrant.swatches();
 	if(wpartg_options["force_adaptive_color"]){
+		let vibrant=new Vibrant(jQuery('#swipebox-slider > div.slide.current > img')[0]);
+		let swatches = vibrant.swatches();
 		jQuery('#wpartg-title').css('background-color',swatches['Muted'].getHex());
 		jQuery('#wpartg-title').css('color',swatches['Muted'].getTitleTextColor());
 		jQuery('#wpartg-alt').css('background-color',swatches['Muted'].getHex());
