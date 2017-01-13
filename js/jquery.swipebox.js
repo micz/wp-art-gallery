@@ -616,17 +616,12 @@
 				$( '#swipebox-slider .slide' ).eq( index ).addClass( 'current' );
 				this.setTitle( index );
 
+				if ( plugin.settings.afterSetSlide ) {
+					plugin.settings.afterSetSlide(index);
+				}
+
 				if ( isFirst ) {
-					if ( plugin.settings.afterSetSlide ) {
-							setTimeout( function() {
-								plugin.settings.afterSetSlide(index);
-							}, 10);
-					}
 					slider.fadeIn();
-				}else{
-					if ( plugin.settings.afterSetSlide ) {
-						plugin.settings.afterSetSlide(index);
-					}
 				}
 
 				$( '#swipebox-prev, #swipebox-next' ).removeClass( 'disabled' );
@@ -697,12 +692,11 @@
 				if ( ! $this.isVideo( src ) ) {
 					slide.addClass( 'slide-loading' );
 					$this.loadMedia( src, function() {
-						slide.removeClass( 'slide-loading' );
-						slide.html( this );
-
 						if ( plugin.settings.afterMedia ) {
 							plugin.settings.afterMedia( index );
 						}
+						slide.removeClass( 'slide-loading' );
+						slide.html( this );
 					} );
 				} else {
 					slide.html( $this.getVideo( src ) );
