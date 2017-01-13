@@ -155,6 +155,7 @@ if (!class_exists('WPArtGallery')) {
       //print here the Art Gallery javascript code
       //see https://core.trac.wordpress.org/browser/tags/4.5.3/src/wp-includes/media.php#L1577
       $attachments = array();
+      $using_tagged_images=false;
 
 		if ( ! empty( $ids ) ) {
 			$output.='gallery ids= '.$ids.'</br/>';
@@ -205,6 +206,8 @@ if (!class_exists('WPArtGallery')) {
 			foreach ( $_attachments as $key => $val ) {
 				$attachments[$val->ID] = $_attachments[$key];
 			}
+
+			$using_tagged_images=true;
 		}
 
 		if ( empty( $attachments ) ) {
@@ -212,22 +215,33 @@ if (!class_exists('WPArtGallery')) {
 			return $output;
 		}
 
-		//$output_hidden_img='<div style="display:none;">';
-		$output_img_js_array='<script language="javascript">let wpartg_img_array=[';
+		$output_js_start='<script language="javascript">';
+		$output_js_end='</script>';
+
+		//Javascript options
+		$output_options='let wpartg_options=[];';
+		//if using tag, force adaptive color
+		if($using_tagged_images){
+			$output_options.='wpartg_options["force_adaptive_color"]=1;';
+		}
+
+		$output_img_js_array='let wpartg_img_array=[';
 
 		foreach ( $attachments as $id => $attachment ) {
 			$img_metadata=wp_get_attachment_image_src($id,'large');
 			$img_data=wpmz_get_attachment($id);
 			$output.=$img_metadata[0].'<br/>';
-			//$output_hidden_img.='<img src="'.$img_metadata[0].'"/>';
 			$output_img_js_array.='{href:"'.$img_metadata[0].'",title:"'.$img_data['title'].'",alt:"'.$img_data['alt'].'",caption:"'.$img_data['caption'].'",desc:"'.$img_data['description'].'"},';
 		}
 
-		//$output_hidden_img.='</div>';
 		$output_img_js_array=trim($output_img_js_array,',');
-		$output_img_js_array.='];</script>';
-		//$output.=$output_hidden_img;
+		$output_img_js_array.='];';
+		//Javascript Output - START
+		$output.=$output_js_start;
 		$output.=$output_img_js_array;
+		$output.=$output_options;
+		$output.=$output_js_end;
+		//Javascript Output - END
 
 		$gallery_link_text=__('Enter Gallery','wp-art-gallery');
 		if($this->options[self::_gallery_link_text]!=''){
