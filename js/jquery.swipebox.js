@@ -17,11 +17,11 @@
 				showTitle: true,
 				videoMaxWidth : 1140,
 				vimeoColor : 'cccccc',
-				afterBuildDone: null,
 				beforeOpen: null,
 				afterOpen: null,
 				afterClose: null,
 				afterMedia: null,
+				afterSetSlide: null,
 				nextSlide: null,
 				prevSlide: null,
 				loopAtEnd: false,
@@ -200,10 +200,6 @@
 
 				$this.animBars();
 				$this.resize();
-
-				if ( plugin.settings.afterBuildDone ) {
-						plugin.settings.afterBuildDone();
-					}
 
 			},
 
@@ -622,6 +618,15 @@
 
 				if ( isFirst ) {
 					slider.fadeIn();
+					if ( plugin.settings.afterSetSlide ) {
+						setTimeout( function() {
+						plugin.settings.afterSetSlide(index);
+					}, 10);
+					}
+				}else{
+					if ( plugin.settings.afterSetSlide ) {
+						plugin.settings.afterSetSlide(index);
+					}
 				}
 
 				$( '#swipebox-prev, #swipebox-next' ).removeClass( 'disabled' );
