@@ -617,12 +617,12 @@
 				this.setTitle( index );
 
 				if ( isFirst ) {
-					slider.fadeIn();
 					if ( plugin.settings.afterSetSlide ) {
-						setTimeout( function() {
-						plugin.settings.afterSetSlide(index);
-					}, 10);
+							setTimeout( function() {
+								plugin.settings.afterSetSlide(index);
+							}, 10);
 					}
+					slider.fadeIn();
 				}else{
 					if ( plugin.settings.afterSetSlide ) {
 						plugin.settings.afterSetSlide(index);
