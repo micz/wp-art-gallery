@@ -34,10 +34,10 @@ function wpartg_enter_gallery(img_array){
 }
 
 function wpartg_add_html(index){
-	jQuery('#swipebox-container').append('<div id="wpartg-title"></div>');
-	jQuery('#swipebox-container').append('<div id="wpartg-alt"></div>');
-	jQuery('#swipebox-container').append('<div id="wpartg-caption"></div>');
-	jQuery('#swipebox-container').append('<div id="wpartg-desc"></div>');
+	jQuery('#swipebox-container').append('<div id="wpartg-title" class="wpartg-img-text"></div>');
+	jQuery('#swipebox-container').append('<div id="wpartg-alt" class="wpartg-img-text"></div>');
+	jQuery('#swipebox-container').append('<div id="wpartg-caption" class="wpartg-img-text"></div>');
+	jQuery('#swipebox-container').append('<div id="wpartg-desc" class="wpartg-img-text"></div>');
 	jQuery('#wpartg-title').text(wpartg_img_array[index]['title']);
 	jQuery('#wpartg-alt').text(wpartg_img_array[index]['alt']);
 	jQuery('#wpartg-caption').text(wpartg_img_array[index]['caption']);
