@@ -143,7 +143,7 @@ if (!class_exists('WPArtGallery')) {
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
-	    extract(shortcode_atts(array('ids'=>'','tag'=>'','force_adaptive_color'=>0),$atts));
+	    extract(shortcode_atts(array('ids'=>'','tag'=>'','force_adaptive_color'=>1),$atts));
 	    $ids=trim(wp_filter_nohtml_kses($ids));
 	    $tag=trim(wp_filter_nohtml_kses($tag));
 	    $force_adaptive_color=trim(wp_filter_nohtml_kses($force_adaptive_color));
