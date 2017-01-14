@@ -28,4 +28,11 @@ function wpmz_get_attachment( $attachment_id ) {
 		'title' => $attachment->post_title
 	);
 }
+
+function wpmz_is_parent_page($page){
+	$post = get_post();
+	$anc = get_post_ancestors( $post->ID );
+	$match=array_intersect($page,$anc);
+	return !empty($match);
+}
 ?>

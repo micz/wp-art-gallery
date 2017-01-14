@@ -37,6 +37,7 @@ if (!class_exists('WPArtGallery')) {
 
 	  //Options constants
 	  const _pages='_pages';
+	  const _subpages='_subpages';
 	  const _only_custom_css='_only_custom_css';
 	  const _gallery_link_text='_gallery_link_text';
 
@@ -98,6 +99,7 @@ if (!class_exists('WPArtGallery')) {
 <table class="form-table">
    <tr valign="top"><th scope="row"><?esc_html_e('Gallery page','wp-art-gallery');?></th>
         <td><input type="text" name="wpmiczartgal_options[<?=self::_pages?>]" value="<?php echo $this->options[self::_pages]; ?>"/>
+        <br/><input type="checkbox" name="wpmiczartgal_options[<?=self::_subpages?>]" value="1"<?php echo $this->options[self::_subpages]==1?'checked':'';?>><?esc_html_e('Include subpages.','wp-art-gallery');?>
         <br/><?esc_html_e('To optimize your website loading times, you could write here the pages id or permalink on which you have activated the Art Gallery with the shortcode.','wp-art-gallery');?><br/>
         <?esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
         <?esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
@@ -114,12 +116,15 @@ if (!class_exists('WPArtGallery')) {
 
   public function options_validate($input) {
     $newinput[self::_pages] = trim(wp_filter_nohtml_kses($input[self::_pages]));
+    $newinput[self::_subpages] = trim(wp_filter_nohtml_kses($input[self::_subpages]));
     $newinput[self::_gallery_link_text] = trim(wp_filter_nohtml_kses($input[self::_gallery_link_text]));
     return $newinput;
   }
 
   public function sanitizeOptions($options){
-
+	if(!array_key_exists(self::_pages,$options)){$options[self::_pages]='';}
+	if(!array_key_exists(self::_subpages,$options)){$options[self::_subpages]=0;}
+	if(!array_key_exists(self::_gallery_link_text,$options)){$options[self::_gallery_link_text]='';}
     return $options;
   }
 

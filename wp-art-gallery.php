@@ -61,7 +61,7 @@ function wpmiczartgal_enqueue_scripts() {
   global $wpmiczartgallery;
   $wpmiczartgal_enqueue_scripts=false;
   if($wpmiczartgallery->options[WPArtGallery::_pages]!=''){ //if the user has set a single page, enqueue only on that page
-    $wpmiczartgal_enqueue_scripts=is_page(explode(',',$wpmiczartgallery->options[WPArtGallery::_pages]));
+    $wpmiczartgal_enqueue_scripts=is_page(explode(',',$wpmiczartgallery->options[WPArtGallery::_pages]))||wpmz_is_parent_page(explode(',',$wpmiczartgallery->options[WPArtGallery::_pages]));
   }else{
     $wpmiczartgal_enqueue_scripts=is_page();
   }
