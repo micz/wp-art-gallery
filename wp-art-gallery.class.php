@@ -180,7 +180,7 @@ if (!class_exists('WPArtGallery')) {
 				$attachments[$val->ID] = $_attachments[$key];
 			}
 		}elseif( ! empty( $tag ) ) {
-			//we are going to extract all the images from the tagged posts (type image)
+			//we are going to extract all the images from the tagged posts (type image). Limit to max 20 at the moment.
 			$_tagged_posts = get_posts( array(
 							 	'post_type' => 'post',
 							 	'tax_query' => array(
@@ -191,6 +191,7 @@ if (!class_exists('WPArtGallery')) {
 									),
 								),
 								'tag' => $tag,
+								'numberposts' => 20,
 							 ) );
 
 			$_tagged_posts_ids_array=array();
