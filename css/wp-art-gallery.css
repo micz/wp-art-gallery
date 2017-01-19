@@ -42,3 +42,16 @@ box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0
 -o-transform:skewY(-2deg);
 transform:skewY(-2deg);
 }
+#wpartg-hide-text{
+  background-image: url(../img/hide.png);
+  background-repeat: no-repeat;
+  border: none !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  width: 46px;
+  height: 50px;
+  top: 40px;
+  right: 0;
+  position: absolute;
+  z-index: 9999;
+}

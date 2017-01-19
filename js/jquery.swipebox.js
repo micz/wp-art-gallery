@@ -22,6 +22,7 @@
 				afterClose: null,
 				afterMedia: null,
 				afterSetSlide: null,
+				afterSetTitle: null,
 				nextSlide: null,
 				prevSlide: null,
 				loopAtEnd: false,
@@ -725,6 +726,9 @@
 					$( '#swipebox-title' ).append( title );
 				} else {
 					$( '#swipebox-top-bar' ).hide();
+				}
+				if ( plugin.settings.afterSetTitle ) {
+						plugin.settings.afterSetTitle( index );
 				}
 			},
 

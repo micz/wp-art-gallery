@@ -14,19 +14,21 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
+var wpartg_hidden=false;
+var wpartg_current_index=0;
 
 jQuery(document).ready(function(){
 
     //jQuery('div#wpartgnojs').remove();
-
 });
 
 function wpartg_enter_gallery(img_array){
 	jQuery.swipebox(img_array,{
 		afterOpen:function(index){wpartg_add_html(index);},
-		nextSlide:function(index){wpartg_change_slide(index);},
-		prevSlide:function(index){wpartg_change_slide(index);},
-		afterMedia:function(index){setTimeout(function(){if(index==0){wpartg_set_adaptive_colors(index);}},10);},
+		afterSetSlide:function(index){wpartg_change_slide(index);},
+		afterSetTitle:function(index){wpartg_current_index=index;},
+		afterMedia:function(index){setTimeout(function(){if((index==0)&&(wpartg_current_index==index)){wpartg_set_adaptive_colors(index);}},10);},
+		afterClose:function(){wpartg_hidden=false;},
 		showTitle:false,
 		hideBarsDelay:1000,
 	});
@@ -42,6 +44,8 @@ function wpartg_add_html(index){
 	jQuery('#wpartg-alt').text(wpartg_img_array[index]['alt']);
 	jQuery('#wpartg-caption').text(wpartg_img_array[index]['caption']);
 	jQuery('#wpartg-desc').text(wpartg_img_array[index]['desc']);
+	jQuery('#swipebox-close').after('<a id="wpartg-hide-text"></a>');
+	jQuery('#wpartg-hide-text').bind('touchend click',function(){wpartg_toggle_text();});
 }
 
 function wpartg_set_adaptive_colors(index){
@@ -67,5 +71,25 @@ function wpartg_change_slide(index){
 	jQuery('#wpartg-alt').text(wpartg_img_array[index]['alt']);
 	jQuery('#wpartg-caption').text(wpartg_img_array[index]['caption']);
 	jQuery('#wpartg-desc').text(wpartg_img_array[index]['desc']);
+	if(wpartg_img_array[index]['title']==''){jQuery('#wpartg-title').hide();}else{if(!wpartg_hidden){jQuery('#wpartg-title').show();}}
+	if(wpartg_img_array[index]['alt']==''){jQuery('#wpartg-alt').hide();}else{if(!wpartg_hidden){jQuery('#wpartg-alt').show();}}
+	if(wpartg_img_array[index]['caption']==''){jQuery('#wpartg-caption').hide();}else{if(!wpartg_hidden){jQuery('#wpartg-caption').show();}}
+	if(wpartg_img_array[index]['desc']==''){jQuery('#wpartg-desc').hide();}else{if(!wpartg_hidden){jQuery('#wpartg-desc').show();}}
 	wpartg_set_adaptive_colors(index);
+}
+
+function wpartg_toggle_text(){
+	if(wpartg_hidden){
+		if(jQuery('#wpartg-title').text()!='')jQuery('#wpartg-title').show();
+		if(jQuery('#wpartg-alt').text()!='')jQuery('#wpartg-alt').show();
+		if(jQuery('#wpartg-caption').text()!='')jQuery('#wpartg-caption').show();
+		if(jQuery('#wpartg-desc').text()!='')jQuery('#wpartg-desc').show();
+		wpartg_hidden=false;
+	}else{
+		jQuery('#wpartg-title').hide();
+		jQuery('#wpartg-alt').hide();
+		jQuery('#wpartg-caption').hide();
+		jQuery('#wpartg-desc').hide();
+		wpartg_hidden=true;
+	}
 }
