@@ -83,6 +83,7 @@ if (!class_exists('WPArtGallery')) {
       $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
       $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
       $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to <i>ids</i> option.','wp-art-gallery').'<br/>';
+      $output.='<b>link_text</b>: '.esc_html__('Define a link text for the gallery. It overrides the global option.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_force</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_type</b>: '.esc_html__('Choose the adaptive color type. Default "Muted", other available values: "Vibrant", "DarkVibrant", "DarkMuted", "LightMuted".','wp-art-gallery').' <a href="'.self::url_adaptive_colors_info.'" target="_blank">'.esc_html__('More info','wp-art-gallery').'</a><br/>';
       $output.='</p>';
@@ -150,9 +151,10 @@ if (!class_exists('WPArtGallery')) {
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
-	    extract(shortcode_atts(array('ids'=>'','tag'=>'','adaptive_color_force'=>1,'adaptive_color_type'=>'Muted'),$atts));
+	    extract(shortcode_atts(array('ids'=>'','tag'=>'','link_text'=>'','adaptive_color_force'=>1,'adaptive_color_type'=>'Muted'),$atts));
 	    $ids=trim(wp_filter_nohtml_kses($ids));
 	    $tag=trim(wp_filter_nohtml_kses($tag));
+	    $link_text=trim(wp_filter_nohtml_kses($link_text));
 	    $adaptive_color_force=trim(wp_filter_nohtml_kses($adaptive_color_force));
 	    $adaptive_color_type=trim(wp_filter_nohtml_kses($adaptive_color_type));
 
@@ -260,6 +262,9 @@ if (!class_exists('WPArtGallery')) {
 		$gallery_link_text=__('Enter Gallery','wp-art-gallery');
 		if($this->options[self::_gallery_link_text]!=''){
 			$gallery_link_text=$this->options[self::_gallery_link_text];
+		}
+		if(!empty($link_text)){
+			$gallery_link_text=$link_text;
 		}
 
 		$output.='<a href="javascript:wpartg_enter_gallery(wpartg_img_array);">'.$gallery_link_text.'</a>';
