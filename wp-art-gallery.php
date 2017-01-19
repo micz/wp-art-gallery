@@ -107,10 +107,6 @@ function wpmiczartgal_enqueue_scripts() {
             array('jquery','swipebox'),
             WPArtGallery::version //script version
         );
-        //passing js params
-        wp_localize_script('wpmiczartgal-rss500px','wpmiczartgal_options',$wpmiczartgallery->getJsParams());
-        //localizing js scripts
-        wp_localize_script('wpmiczartgal-rss500px','wpmiczartgal_langs',$wpmiczartgallery->getJsLang());
         $wpmiczartgallery->scripts_loaded=true;
     endif;
 }
