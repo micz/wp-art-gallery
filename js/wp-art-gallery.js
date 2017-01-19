@@ -45,7 +45,7 @@ function wpartg_add_html(index){
 }
 
 function wpartg_set_adaptive_colors(index){
-	if(wpartg_options["force_adaptive_color"]){
+	if(wpartg_options["adaptive_color_force"]){
 		//let curr_img=jQuery('div.slide.current > img')[0];
 		let curr_img=jQuery('#swipebox-slider .slide').eq(index).find('img')[0];
 		if(curr_img){

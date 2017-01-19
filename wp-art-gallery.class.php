@@ -82,7 +82,7 @@ if (!class_exists('WPArtGallery')) {
       $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
       $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
       $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to <i>ids</i> option.','wp-art-gallery').'<br/>';
-      $output.='<b>force_adaptive_color</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
+      $output.='<b>adaptive_color_force</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
       $output.='</p>';
       echo $output;
     }
@@ -148,10 +148,10 @@ if (!class_exists('WPArtGallery')) {
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
-	    extract(shortcode_atts(array('ids'=>'','tag'=>'','force_adaptive_color'=>1),$atts));
+	    extract(shortcode_atts(array('ids'=>'','tag'=>'','adaptive_color_force'=>1),$atts));
 	    $ids=trim(wp_filter_nohtml_kses($ids));
 	    $tag=trim(wp_filter_nohtml_kses($tag));
-	    $force_adaptive_color=trim(wp_filter_nohtml_kses($force_adaptive_color));
+	    $adaptive_color_force=trim(wp_filter_nohtml_kses($adaptive_color_force));
 
       if($this->scripts_loaded==false){ //the user is not loading the scripts in this page
         if(current_user_can('manage_options')){ //the current user can manage options
@@ -230,8 +230,8 @@ if (!class_exists('WPArtGallery')) {
 		//Javascript options
 		$output_options='let wpartg_options=[];';
 		//if using tag, force adaptive color
-		if($using_tagged_images||$force_adaptive_color){
-			$output_options.='wpartg_options["force_adaptive_color"]=1;';
+		if($using_tagged_images||$adaptive_color_force){
+			$output_options.='wpartg_options["adaptive_color_force"]=1;';
 		}
 
 		$output_img_js_array='let wpartg_img_array=[';
