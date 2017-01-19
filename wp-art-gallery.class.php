@@ -33,6 +33,7 @@ if (!class_exists('WPArtGallery')) {
 
 	  //URL constants
 	  const url_custom_css_info='http://micz.it/wordpress-plugin-art-gallery/custom-css/';
+	  const url_adaptive_colors_info='http://micz.it/wordpress-plugin-art-gallery/adaptive-colors/';
 	  const url_donate='http://micz.it/wordpress-plugin-art-gallery/donate/';
 
 	  //Options constants
@@ -83,6 +84,7 @@ if (!class_exists('WPArtGallery')) {
       $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
       $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to <i>ids</i> option.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_force</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
+      $output.='<b>adaptive_color_type</b>: '.esc_html__('Choose the adaptive color type. Default "Muted", other available values: "Vibrant", "DarkVibrant", "DarkMuted", "LightMuted".','wp-art-gallery').' <a href="'.self::url_adaptive_colors_info.'" target="_blank">'.esc_html__('More info','wp-art-gallery').'</a><br/>';
       $output.='</p>';
       echo $output;
     }
@@ -148,10 +150,11 @@ if (!class_exists('WPArtGallery')) {
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
-	    extract(shortcode_atts(array('ids'=>'','tag'=>'','adaptive_color_force'=>1),$atts));
+	    extract(shortcode_atts(array('ids'=>'','tag'=>'','adaptive_color_force'=>1,'adaptive_color_type'=>'Muted'),$atts));
 	    $ids=trim(wp_filter_nohtml_kses($ids));
 	    $tag=trim(wp_filter_nohtml_kses($tag));
 	    $adaptive_color_force=trim(wp_filter_nohtml_kses($adaptive_color_force));
+	    $adaptive_color_type=trim(wp_filter_nohtml_kses($adaptive_color_type));
 
       if($this->scripts_loaded==false){ //the user is not loading the scripts in this page
         if(current_user_can('manage_options')){ //the current user can manage options
@@ -233,6 +236,8 @@ if (!class_exists('WPArtGallery')) {
 		if($using_tagged_images||$adaptive_color_force){
 			$output_options.='wpartg_options["adaptive_color_force"]=1;';
 		}
+
+		$output_options.='wpartg_options["adaptive_color_type"]="'.$adaptive_color_type.'";';
 
 		$output_img_js_array='let wpartg_img_array=[';
 

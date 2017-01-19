@@ -833,7 +833,7 @@
                 // Everything else
                 else {
     				if ( ! this.isVideo( src ) ) {
-    					var img = $( '<img>' ).on( 'load', function() {
+    					let img = $( '<img>' ).on( 'load', function() {
     						callback.call( img );
     					} );
 
