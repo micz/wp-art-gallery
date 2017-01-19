@@ -273,33 +273,6 @@ if (!class_exists('WPArtGallery')) {
 	  }
 //Output shortcode [mz_artg] - END
 
-	public function getJsLang(){
-		$jslang=array();
-		$jslang['gal_nextLinkText']=esc_attr__('Next &rsaquo;','wp-art-gallery');
-		$jslang['gal_prevLinkText']=esc_attr__('&lsaquo; Prev','wp-art-gallery');
-		return $jslang;
-	}
-
-	public function getJsParams(){
-/*		$jsparams=array();
-		$jsparams[(self::_thumb_h)]=$this->options[(self::_thumb_h)];
-		$jsparams[(self::_thumb_w)]=$this->options[(self::_thumb_w)];
-		$jsparams[(self::_image_h)]=$this->options[(self::_image_h)];
-		$jsparams[(self::_image_w)]=$this->options[(self::_image_w)];
-		//$jsparams[(self::_plugin_img_path)]=plugins_url('img/',___FILE_wpag___);
-		return $jsparams;*/
-	}
-
-	  /*public function getImageHTML($imgData){
-	    $output='<li>
-            <a class="thumb" name="optionalCustomIdentifier" href="'.$imgData['thumb_url'].'" title="'.$imgData['title'].'">
-                <img src="'.$imgData['thumb_url'].'" alt="'.$imgData['title'].'" />
-            </a>
-            <div class="caption">'.$imgData['caption'].'</div>
-        </li>';
-      return $output;
-	  }*/
-
 	} //END WPArtGallery
 
 } //END if class_exists('WPArtGallery')
