@@ -124,9 +124,11 @@ if (!class_exists('WPArtGallery')) {
   }
 
   public function sanitizeOptions($options){
-	if(!array_key_exists(self::_pages,$options)){$options[self::_pages]='';}
-	if(!array_key_exists(self::_subpages,$options)){$options[self::_subpages]=0;}
-	if(!array_key_exists(self::_gallery_link_text,$options)){$options[self::_gallery_link_text]='';}
+	if(is_array($options)){
+		if(!array_key_exists(self::_pages,$options)){$options[self::_pages]='';}
+		if(!array_key_exists(self::_subpages,$options)){$options[self::_subpages]=0;}
+		if(!array_key_exists(self::_gallery_link_text,$options)){$options[self::_gallery_link_text]='';}
+	}
     return $options;
   }
 
