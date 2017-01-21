@@ -82,7 +82,7 @@ if (!class_exists('WPArtGallery')) {
       $output.='<br/>';
       $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
       $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
-      $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to <i>ids</i> option.','wp-art-gallery').'<br/>';
+      $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to "ids" option.','wp-art-gallery').'<br/>';
       $output.='<b>link_text</b>: '.esc_html__('Define a link text for the gallery. It overrides the global option.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_force</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_type</b>: '.esc_html__('Choose the adaptive color type. Default "Muted", other available values: "Vibrant", "DarkVibrant", "DarkMuted", "LightMuted".','wp-art-gallery').' <a href="'.self::url_adaptive_colors_info.'" target="_blank">'.esc_html__('More info','wp-art-gallery').'</a><br/>';
