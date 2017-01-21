@@ -207,7 +207,7 @@ if (!class_exists('WPArtGallery')) {
 
 			$_tagged_posts_ids=join(',',$_tagged_posts_ids_array);
 
-			$output.='gallery ids from tag= '.$_tagged_posts_ids.'</br/>';
+			//$output.='gallery ids from tag= '.$_tagged_posts_ids.'</br/>';
 
 			$_attachments = get_posts( array(
 								'post_parent__in' => $_tagged_posts_ids_array,
@@ -246,7 +246,7 @@ if (!class_exists('WPArtGallery')) {
 		foreach ( $attachments as $id => $attachment ) {
 			$img_metadata=wp_get_attachment_image_src($id,'large');
 			$img_data=wpmz_get_attachment($id);
-			$output.=$img_metadata[0].'<br/>';
+			//$output.=$img_metadata[0].'<br/>';
 			$output_img_js_array.='{href:"'.$img_metadata[0].'",title:"'.$img_data['title'].'",alt:"'.$img_data['alt'].'",caption:"'.$img_data['caption'].'",desc:"'.$img_data['description'].'"},';
 		}
 
