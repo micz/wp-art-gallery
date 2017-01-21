@@ -23,13 +23,13 @@ See the plugin in action here: http://micz.it/...
 
 1. Upload the folder `wp-art-gallery` and all its files to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Insert the shortcode [miczartg] in the page you want to show the gallery.
+1. Insert the shortcode [mz_artg] in the page you want to show the gallery.
 
 == Frequently Asked Questions ==
 
 = Can I add the gallery to a post? =
 
-No. The gallery can be added only on a page using the [miczartg] shortcode.
+No. The gallery can be added only on a page using the [mz_artg] shortcode.
 
 == Screenshots ==
 
@@ -41,14 +41,10 @@ No. The gallery can be added only on a page using the [miczartg] shortcode.
 = 1.0 =
 First release.
 
-
 == Using a custom CSS file ==
 
-You can customize the look of the gallery using a custom CSS file.
-The file must be named `wp-art-gallery.css` and copied in your theme root folder, the same where is stored the theme `style.css` file.
-This custom file will be loaded after the standard plugin css file, so you can modify only the elements you need, the other elements will be displayed as usual.
-You can check the standard `wp-art-gallery.css` to see which css elements the gallery is composed of.
-If you check the "Exclusive custom CSS" option in the plugin settings page, will be loaded only your custom CSS file and not the plugin default one.
+You can customize the look of the gallery using a custom CSS file. The file must be named wp-art-gallery.css and copied in a wp-art-gallery folder under your theme root folder, the same where is stored the theme style.css file.
+This custom file will be loaded after the standard plugin css file, so you can modify only the elements you need, the other elements will be displayed as usual. You can check the standard wp-art-gallery.css to see which css elements the gallery is composed of.
 
 == Plugin source files ==
 
