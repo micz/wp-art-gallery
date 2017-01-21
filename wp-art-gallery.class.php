@@ -76,12 +76,11 @@ if (!class_exists('WPArtGallery')) {
     public function main_section_text() {
       $output='<p>';
       $output.='<b>'.esc_html__('How to use this plugin:','wp-art-gallery').'</b><br/>';
-      $output.=esc_html__('1. Upload you photos and... TO DO','wp-art-gallery').'<br/>';
-      $output.=esc_html__('2. Use the [mz_artg] shortcode in the page you want to show the Art Gallery on.','wp-art-gallery').'<br/>';
-      $output.=esc_html__('3. Add the needed parameters to the shortcode of that page.','wp-art-gallery').'<br/>';
+      $output.=esc_html__('1. Use the [mz_artg] shortcode in the page you want to show the Art Gallery on.','wp-art-gallery').'<br/>';
+      $output.=esc_html__('2. Add the needed parameters to the shortcode of that page. See below for more information.','wp-art-gallery').'<br/>';
       $output.='<br/>';
       $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
-      $output.='<b>ids</b>: '.esc_html__('List of image ids to be shown.','wp-art-gallery').'<br/>';
+      $output.='<b>ids</b>: '.esc_html__('List of images ids to be shown.','wp-art-gallery').'<br/>';
       $output.='<b>tag</b>: '.esc_html__('Tag slug to search for the images to show. This is alternative to "ids" option.','wp-art-gallery').'<br/>';
       $output.='<b>link_text</b>: '.esc_html__('Define a link text for the gallery. It overrides the global option.','wp-art-gallery').'<br/>';
       $output.='<b>adaptive_color_force</b>: '.esc_html__('Set to true to use adaptive colors for all photo\'s texts.','wp-art-gallery').'<br/>';
@@ -171,7 +170,7 @@ if (!class_exists('WPArtGallery')) {
       $using_tagged_images=false;
 
 		if ( ! empty( $ids ) ) {
-			$output.='gallery ids= '.$ids.'</br/>';
+			//$output.='gallery ids= '.$ids.'</br/>';
 
 			$_attachments = get_posts(array(
 								'include' => $ids,
