@@ -9,6 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A full immersive gallery.
+No thumbnails, no distractions. Only one image a time. Fullscreen!
 
 == Description ==
 
@@ -16,14 +17,14 @@ Show your photos in a full immersive gallery.
 
 It's possible also to define a custom CSS in your template folder to customize completely the gallery.
 
-See the plugin in action here: http://micz.it/...
+See the plugin in action here: http://micz.it/wordpress-plugin-art-gallery/gallery-example/
 
 
 == Installation ==
 
 1. Upload the folder `wp-art-gallery` and all its files to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Insert the shortcode [mz_artg] in the page you want to show the gallery.
+1. Insert the shortcode [mz_artg] in the page you want to show the gallery on. More info on the shortcode options are available on the plugin settings page.
 
 == Frequently Asked Questions ==
 
@@ -33,10 +34,15 @@ No. The gallery can be added only on a page using the [mz_artg] shortcode.
 
 == Screenshots ==
 
-1. The gallery in action, see it live here: http://micz.it/... .
+1. The gallery in action, see it live here: http://micz.it/wordpress-plugin-art-gallery/gallery-example/ .
 2. Plugin settings page.
 
 == Changelog ==
+
+= 1.0 =
+First release.
+
+== Upgrade Notice ==
 
 = 1.0 =
 First release.
