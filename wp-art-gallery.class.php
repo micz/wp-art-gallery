@@ -146,7 +146,7 @@ if (!class_exists('WPArtGallery')) {
   }
 //Plugin admin page - END
 
-//Output shortcode [mz_artg] - param ids: list of image ids;
+//Output shortcode [mz_artg]
 	 public function getShortcode($atts){
 	    $output='';
 	    //get user param
