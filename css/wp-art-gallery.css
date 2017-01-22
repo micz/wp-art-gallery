@@ -8,7 +8,7 @@ padding:5px 10px;
 }
 #wpartg-alt{
 position:absolute;
-bottom:10px;
+bottom:55px;
 right:2%;
 text-align:center;
 z-index:998;
@@ -16,7 +16,7 @@ padding:5px 10px;
 }
 #wpartg-desc{
 position:absolute;
-bottom:10%;
+bottom:90px;
 right:2%;
 text-align:left;
 z-index:998;
@@ -25,7 +25,7 @@ width:40%;
 }
 #wpartg-caption{
 position:absolute;
-bottom:10px;
+bottom:55px;
 left:1%;
 text-align:center;
 z-index:998;
