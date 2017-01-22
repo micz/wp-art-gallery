@@ -17,7 +17,7 @@ Show your photos in a full immersive gallery.
 
 It's possible also to define a custom CSS in your template folder to customize completely the gallery.
 
-See the plugin in action here: http://micz.it/wordpress-plugin-art-gallery/gallery-example/
+See the plugin in action here: http://micz.it/wordpress-plugin-art-gallery/example-gallery/
 
 
 == Installation ==
@@ -34,7 +34,7 @@ No. The gallery can be added only on a page using the [mz_artg] shortcode.
 
 == Screenshots ==
 
-1. The gallery in action, see it live here: http://micz.it/wordpress-plugin-art-gallery/gallery-example/ .
+1. The gallery in action, see it live here: http://micz.it/wordpress-plugin-art-gallery/example-gallery/ .
 2. Plugin settings page.
 
 == Changelog ==
