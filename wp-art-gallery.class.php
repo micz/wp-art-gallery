@@ -32,6 +32,7 @@ if (!class_exists('WPArtGallery')) {
 	  const version='1.0';
 
 	  //URL constants
+	  const url_how_to='http://micz.it/wordpress-plugin-art-gallery/how-to/';
 	  const url_custom_css_info='http://micz.it/wordpress-plugin-art-gallery/custom-css/';
 	  const url_adaptive_colors_info='http://micz.it/wordpress-plugin-art-gallery/adaptive-colors/';
 	  const url_donate='http://micz.it/wordpress-plugin-art-gallery/donate/';
@@ -76,7 +77,9 @@ if (!class_exists('WPArtGallery')) {
     public function main_section_text() {
       $output='<p>';
       $output.='<b>'.esc_html__('How to use this plugin:','wp-art-gallery').'</b><br/>';
-      $output.=esc_html__('1. Use the [mz_artg] shortcode in the page you want to show the Art Gallery on.','wp-art-gallery').'<br/>';
+      $output.=esc_html__('1. Use the [mz_artg] shortcode in the page you want to show the Art Gallery on.','wp-art-gallery');
+      $output.=' <a href="'.self::url_how_to.'" target="_blank">'.esc_html__('More info','wp-art-gallery').'</a>';
+      $output.='<br/>';
       $output.=esc_html__('2. Add the needed parameters to the shortcode of that page. See below for more information.','wp-art-gallery').'<br/>';
       $output.='<br/>';
       $output.='<b>'.esc_html__('Shortcode Options','wp-art-gallery').'</b><br/>';
@@ -93,7 +96,7 @@ if (!class_exists('WPArtGallery')) {
 ?><div>
 <h2><?_e('WP Art Gallery Settings','wp-art-gallery');?></h2>
 <?esc_html_e('Modify here the plugin\'s options.','wp-art-gallery');?><br/>
-<br/><?esc_html_e('You can also use a custom CSS file to modify the Art Gallery look and feel.','wp-art-gallery');?> (<a href="<?=self::url_custom_css_info;?>" target="_blank"><?esc_html_e('More info on custom CSS','wp-art-gallery');?></a>)
+<br/><?esc_html_e('You can also use a custom CSS file to modify the Art Gallery look and feel.','wp-art-gallery');?> <a href="<?=self::url_custom_css_info;?>" target="_blank"><?esc_html_e('More info on custom CSS','wp-art-gallery');?></a>
 <form action="options.php" method="post">
 <?php settings_fields('wpmiczartgal_options');?>
 <?php //$options = get_option('wpmiczartgal_options'); // Using $this->options?>
