@@ -15,7 +15,7 @@ No thumbnails, no distractions. Only one image a time. Fullscreen!
 
 Show your photos in a full immersive gallery.
 
-It's possible also to define a custom CSS in your template folder to customize completely the gallery.
+It's possible also to define a custom CSS in your template folder to customize the gallery completely.
 
 See the plugin in action here: http://micz.it/wordpress-plugin-art-gallery/example-gallery/
 
