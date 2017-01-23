@@ -32,7 +32,6 @@ function wpartg_enter_gallery(img_array){
 		showTitle:false,
 		hideBarsDelay:1000,
 	});
-	return false;
 }
 
 function wpartg_add_html(index){
