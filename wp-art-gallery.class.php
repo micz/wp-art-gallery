@@ -94,7 +94,7 @@ if (!class_exists('WPArtGallery')) {
 
 	  public function output_settings_page(){
 ?><div>
-<h2><?_e('WP Art Gallery Settings','wp-art-gallery');?></h2>
+<h2><?_e('WP Art Gallery Settings','wp-art-gallery');?>&nbsp;&nbsp;&nbsp;<span style="font-size:12px;font-weight:normal;">v<?echo self::version;?></span></h2>
 <?esc_html_e('Modify here the plugin\'s options.','wp-art-gallery');?><br/>
 <br/><?esc_html_e('You can also use a custom CSS file to modify the Art Gallery look and feel.','wp-art-gallery');?> <a href="<?=self::url_custom_css_info;?>" target="_blank"><?esc_html_e('More info on custom CSS','wp-art-gallery');?></a>
 <form action="options.php" method="post">
