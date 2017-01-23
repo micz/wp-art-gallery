@@ -4,14 +4,14 @@ Plugin Name: WP Art Gallery
 Plugin URI: http://micz.it/wordpress-plugin-art-gallery/
 Description: A full immersive gallery.
 Author: Mic [m@micz.it]
-Version: 1.0
+Version: 1.0.1
 Text Domain: wp-art-gallery
 Domain Path: /lang
 Author URI: http://micz.it
 License: GPLv2 or later
 */
 
-/* Copyright 2016 Mic (email: m@micz.it)
+/* Copyright 2017 Mic (email: m@micz.it)
 Plugin Info: http://micz.it/wordpress-plugin-500px-jsgallery/
 
 This program is free software; you can redistribute it and/or modify

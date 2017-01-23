@@ -1,5 +1,5 @@
 <?
-/* Copyright 2016 Mic (email: m@micz.it)
+/* Copyright 2017 Mic (email: m@micz.it)
 Plugin Info: http://micz.it/wordpress-plugin-art-gallery/
 
 This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@ if (!class_exists('WPArtGallery')) {
 	  public $that;
 	  public $scripts_loaded;
 
-	  const version='1.0';
+	  const version='1.0.1';
 
 	  //URL constants
 	  const url_how_to='http://micz.it/wordpress-plugin-art-gallery/how-to/';

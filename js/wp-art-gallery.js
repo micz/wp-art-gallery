@@ -1,4 +1,4 @@
-/* Copyright 2016 Mic (email: m@micz.it)
+/* Copyright 2017 Mic (email: m@micz.it)
 Plugin Info: http://micz.it
 
 This program is free software; you can redistribute it and/or modify

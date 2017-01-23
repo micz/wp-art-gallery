@@ -4,7 +4,7 @@ Donate link: http://micz.it/wordpress-plugin-art-gallery/donate/
 Tags: gallery, art, jquery, javascript, photos, photo, immersive
 Requires at least: 3.8.1
 Tested up to: 4.7
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
