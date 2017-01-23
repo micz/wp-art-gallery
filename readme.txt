@@ -39,10 +39,16 @@ No. The gallery can be added only on a page using the [mz_artg] shortcode.
 
 == Changelog ==
 
+= 1.0.1 =
+Fixed a bug opening the gallery in Firefox.
+
 = 1.0 =
 First release.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Fixed a bug opening the gallery in Firefox.
 
 = 1.0 =
 First release.
