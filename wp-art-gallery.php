@@ -29,21 +29,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 // Fix the __FILE__ problem with symlinks.
-// Now just use ___FILE___ instead of __FILE__
+// Now just use ___FILE_wpag___ instead of __FILE__
 
-$___FILE___ = __FILE__;
+$___FILE_wpag___ = __FILE__;
 
 if ( isset( $plugin ) ) {
-$___FILE___ = $plugin;
+$___FILE_wpag___ = $plugin;
 }
 else if ( isset( $mu_plugin ) ) {
-$___FILE___ = $mu_plugin;
+$___FILE_wpag___ = $mu_plugin;
 }
 else if ( isset( $network_plugin ) ) {
-$___FILE___ = $network_plugin;
+$___FILE_wpag___ = $network_plugin;
 }
 
-define( '___FILE_wpag___', $___FILE___ );
+define( '___FILE_wpag___', $___FILE_wpag___ );
 
 include_once('functions.php');
 include_once('wp-art-gallery.class.php');
