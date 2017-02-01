@@ -26,7 +26,7 @@ if (!class_exists('WPArtGallery')) {
 	class WPArtGallery {
 
 	  public $options=array();
-	  public $that;
+	  public $that_wpag;
 	  public $scripts_loaded;
 
 	  const version='1.0.1';
@@ -45,14 +45,14 @@ if (!class_exists('WPArtGallery')) {
 
 	  // Class Constructor
 	  public function __construct(){
-	    global $that;
-	    $that=$this;
+	    global $that_wpag;
+	    $that_wpag=$this;
   	    $this->options = $this->sanitizeOptions(get_option('wpmiczartgal_options'));
-        add_action('admin_init', array($that,'register_settings'));
-        add_action('admin_menu', array($that,'admin_add_page'));
-        add_shortcode('mz_artg', array($that,'getShortcode'));
-        add_filter('plugin_action_links_'.plugin_basename(___FILE_wpag___),array($that,'add_settings_link'));
-        add_filter('plugin_row_meta',array($that,'add_plugin_desc_links'),10,2);
+        add_action('admin_init', array($that_wpag,'register_settings'));
+        add_action('admin_menu', array($that_wpag,'admin_add_page'));
+        add_shortcode('mz_artg', array($that_wpag,'getShortcode'));
+        add_filter('plugin_action_links_'.plugin_basename(___FILE_wpag___),array($that_wpag,'add_settings_link'));
+        add_filter('plugin_row_meta',array($that_wpag,'add_plugin_desc_links'),10,2);
         load_plugin_textdomain('wp-art-gallery',false,basename(dirname(___FILE_wpag___)).'/lang/');
         $this->scripts_loaded=false;
 	  }
@@ -63,15 +63,15 @@ if (!class_exists('WPArtGallery')) {
 
 	  //Settings page
 	  public function register_settings(){
-	    global $that;
-	    register_setting('wpmiczartgal_options','wpmiczartgal_options',array($that,'options_validate'));
-  	  	add_settings_section('wpmiczartgal_main', esc_html__('Main Settings','wp-art-gallery'), array($that,'main_section_text'), 'wpmiczartgal_settings_page');
+	    global $that_wpag;
+	    register_setting('wpmiczartgal_options','wpmiczartgal_options',array($that_wpag,'options_validate'));
+  	  	add_settings_section('wpmiczartgal_main', esc_html__('Main Settings','wp-art-gallery'), array($that_wpag,'main_section_text'), 'wpmiczartgal_settings_page');
 	    //add_settings_field('wpmiczartgal_link_text',esc_html__('Gallery link text','wp-art-gallery'),null,'wpmiczartgal_settings_page','default');
 	  }
 
 	  public function admin_add_page(){
-	    global $that;
-      add_options_page(esc_html__('WP Art Gallery Settings','wp-art-gallery'),esc_html__('WP Art Gallery','wp-art-gallery'), 'manage_options', 'wpmiczartgal_settings_page', array($that,'output_settings_page'));
+	    global $that_wpag;
+      add_options_page(esc_html__('WP Art Gallery Settings','wp-art-gallery'),esc_html__('WP Art Gallery','wp-art-gallery'), 'manage_options', 'wpmiczartgal_settings_page', array($that_wpag,'output_settings_page'));
     }
 
     public function main_section_text() {
