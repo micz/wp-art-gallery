@@ -1,4 +1,4 @@
-<?
+<?php
 /* Copyright 2017 Mic (email: m@micz.it)
 Plugin Info: http://micz.it/wordpress-plugin-art-gallery/
 
@@ -94,30 +94,30 @@ if (!class_exists('WPArtGallery')) {
 
 	  public function output_settings_page(){
 ?><div>
-<h2><?_e('WP Art Gallery Settings','wp-art-gallery');?>&nbsp;&nbsp;&nbsp;<span style="font-size:12px;font-weight:normal;">v<?echo self::version;?></span></h2>
-<?esc_html_e('Modify here the plugin\'s options.','wp-art-gallery');?><br/>
-<br/><?esc_html_e('You can also use a custom CSS file to modify the Art Gallery look and feel.','wp-art-gallery');?> <a href="<?=self::url_custom_css_info;?>" target="_blank"><?esc_html_e('More info on custom CSS','wp-art-gallery');?></a>
+<h2><?php _e('WP Art Gallery Settings','wp-art-gallery');?>&nbsp;&nbsp;&nbsp;<span style="font-size:12px;font-weight:normal;">v<?php echo self::version;?></span></h2>
+<?php esc_html_e('Modify here the plugin\'s options.','wp-art-gallery');?><br/>
+<br/><?php esc_html_e('You can also use a custom CSS file to modify the Art Gallery look and feel.','wp-art-gallery');?> <a href="<?php echo self::url_custom_css_info;?>" target="_blank"><?php esc_html_e('More info on custom CSS','wp-art-gallery');?></a>
 <form action="options.php" method="post">
 <?php settings_fields('wpmiczartgal_options');?>
 <?php //$options = get_option('wpmiczartgal_options'); // Using $this->options?>
 <?php do_settings_sections('wpmiczartgal_settings_page');?>
 <table class="form-table">
-   <tr valign="top"><th scope="row"><?esc_html_e('Gallery page','wp-art-gallery');?></th>
-        <td><input type="text" name="wpmiczartgal_options[<?=self::_pages?>]" value="<?php echo $this->options[self::_pages]; ?>"/>
-        <br/><input type="checkbox" name="wpmiczartgal_options[<?=self::_subpages?>]" value="1"<?php echo $this->options[self::_subpages]==1?'checked':'';?>><?esc_html_e('Include subpages.','wp-art-gallery');?>
-        <br/><?esc_html_e('To optimize your website loading times, you could write here the pages id or permalink on which you have activated the Art Gallery with the shortcode.','wp-art-gallery');?><br/>
-        <?esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
-        <?esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
+   <tr valign="top"><th scope="row"><?php esc_html_e('Gallery page','wp-art-gallery');?></th>
+        <td><input type="text" name="wpmiczartgal_options[<?php echo self::_pages?>]" value="<?php echo $this->options[self::_pages]; ?>"/>
+        <br/><input type="checkbox" name="wpmiczartgal_options[<?php echo self::_subpages?>]" value="1"<?php echo $this->options[self::_subpages]==1?'checked':'';?>><?php esc_html_e('Include subpages.','wp-art-gallery');?>
+        <br/><?php esc_html_e('To optimize your website loading times, you could write here the pages id or permalink on which you have activated the Art Gallery with the shortcode.','wp-art-gallery');?><br/>
+        <?php esc_html_e('The ids or permalinks must be comma separated and can be mixed.','wp-art-gallery');?><br/>
+        <?php esc_html_e('All the styles and scripts needed by this plugin will be loaded only on those pages.','wp-art-gallery');?></td>
     </tr>
-    <tr valign="top"><th scope="row"><?esc_html_e('Gallery link text','wp-art-gallery');?></th>
-        <td><input name="wpmiczartgal_options[<?=self::_gallery_link_text?>]" type="text" value="<?php echo $this->options[self::_gallery_link_text]; ?>"/>
-        <br/><?esc_html_e('If left empty it will be used "Enter Gallery".','wp-art-gallery');?>
+    <tr valign="top"><th scope="row"><?php esc_html_e('Gallery link text','wp-art-gallery');?></th>
+        <td><input name="wpmiczartgal_options[<?php echo self::_gallery_link_text?>]" type="text" value="<?php echo $this->options[self::_gallery_link_text]; ?>"/>
+        <br/><?php esc_html_e('If left empty it will be used "Enter Gallery".','wp-art-gallery');?>
         </td>
     </tr>
 </table>
 <input name="Submit" class="button button-primary" type="submit" value="<?php esc_attr_e('Save Changes','wp-art-gallery');?>"/>
 </form></div>
-	  <?}
+	  <?php }
 
   public function options_validate($input) {
     $newinput[self::_pages] = trim(wp_filter_nohtml_kses($input[self::_pages]));
